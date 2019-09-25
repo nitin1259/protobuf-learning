@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package my.hyd;
+
+message City {
+    string name = 1;
+    int32 zip_code = 2;
+    string country_name = 3;
+}
