@@ -7,6 +7,7 @@ import (
 
 	jsonpb "github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
+	complexpb "github.com/nitin1259/protobuf-learning/src/complex"
 	simplepb "github.com/nitin1259/protobuf-learning/src/simple"
 )
 
@@ -20,6 +21,29 @@ func main() {
 	readAndWriteDemo(sm)
 
 	jsonDemo(sm)
+
+	doComplex()
+}
+
+func doComplex() {
+	complex := complexpb.ComplexMessage{
+		OneDummy: &complexpb.DummyMessage{
+			Id:   1,
+			Name: "Nitin",
+		},
+		MultipleDummy: []*complexpb.DummyMessage{
+			&complexpb.DummyMessage{
+				Id:   2,
+				Name: "Vipin",
+			},
+			&complexpb.DummyMessage{
+				Id:   3,
+				Name: "Sachin",
+			},
+		},
+	}
+
+	fmt.Println("Complex message: ", complex)
 }
 
 func readAndWriteDemo(sm proto.Message) {
