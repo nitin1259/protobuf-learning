@@ -8,6 +8,7 @@ import (
 	jsonpb "github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	complexpb "github.com/nitin1259/protobuf-learning/src/complex"
+	enumpb "github.com/nitin1259/protobuf-learning/src/enum_example"
 	simplepb "github.com/nitin1259/protobuf-learning/src/simple"
 )
 
@@ -23,6 +24,18 @@ func main() {
 	jsonDemo(sm)
 
 	doComplex()
+
+	doEnum()
+}
+
+func doEnum() {
+	em := enumpb.EnumMessage{
+		Id:           42,
+		DayOfTheWeek: enumpb.DayOfTheWeek_THURSDAY,
+	}
+
+	em.DayOfTheWeek = enumpb.DayOfTheWeek_MONDAY
+	fmt.Println(em)
 }
 
 func doComplex() {
